@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc && npm run copy-assets",
-    "copy-assets": "cpx 'data.json' 'index.html' 'images/**' 'dist'",
+    "copy-assets": "cpx data.json dist && cpx index.html dist && cpx \"images/**\" dist",
     "watch": "tsc --watch",
     "clean": "rm -rf dist"
   },
