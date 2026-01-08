@@ -1,37 +1,37 @@
 export class Renderer {
-    renderProducts(products, cartItems, onAdd, onIncrease, onDecrease) {
+    renderProducts(desserts, cartItems, onAdd, onIncrease, onDecrease) {
         const container = document.getElementById('products-container');
         if (!container)
             return;
         container.innerHTML = '';
-        products.forEach(product => {
-            const cartProduct = cartItems.find(item => item.name === product.name);
+        desserts.forEach(dessert => {
+            const cartItem = cartItems.find(item => item.dessert.id === dessert.id);
             const productDiv = document.createElement('div');
             productDiv.className = 'mb-4';
             productDiv.innerHTML = `
         <div class="relative z-0 mb-6">
           <picture>
-            <source srcset="${product.image.tablet}" media="(min-width: 768px)">
-            <img class="rounded-lg" src="${product.image.mobile}" alt="${product.name}">
+            <source srcset="${dessert.image.tablet}" media="(min-width: 768px)">
+            <img class="rounded-lg" src="${dessert.image.mobile}" alt="${dessert.name}">
           </picture>
-          ${!cartProduct ? this.renderAddButton() : this.renderQuantityButton(cartProduct)}
+          ${!cartItem ? this.renderAddButton() : this.renderQuantityButton(cartItem)}
         </div>
         <div>
-          <p class="text-Rose-500 text-[14px]">${product.category}</p>
-          <h2 class="text-[16px] font-medium text-Rose-900">${product.name}</h2>
-          <p class="text-Red font-medium">$${product.price.toFixed(2)}</p>
+          <p class="text-Rose-500 text-[14px]">${dessert.category}</p>
+          <h2 class="text-[16px] font-medium text-Rose-900">${dessert.name}</h2>
+          <p class="text-Red font-medium">$${dessert.price.toFixed(2)}</p>
         </div>
       `;
             container.appendChild(productDiv);
-            if (!cartProduct) {
+            if (!cartItem) {
                 const addButton = productDiv.querySelector('[data-action="add"]');
-                addButton?.addEventListener('click', () => onAdd(product));
+                addButton?.addEventListener('click', () => onAdd(dessert));
             }
             else {
                 const increaseButton = productDiv.querySelector('[data-action="increase"]');
                 const decreaseButton = productDiv.querySelector('[data-action="decrease"]');
-                increaseButton?.addEventListener('click', () => onIncrease(cartProduct.name));
-                decreaseButton?.addEventListener('click', () => onDecrease(cartProduct.name));
+                increaseButton?.addEventListener('click', () => onIncrease(cartItem.dessert.id));
+                decreaseButton?.addEventListener('click', () => onDecrease(cartItem.dessert.id));
             }
         });
     }
@@ -45,12 +45,12 @@ export class Renderer {
       </div>
     `;
     }
-    renderQuantityButton(cartProduct) {
+    renderQuantityButton(cartItem) {
         return `
       <div class="absolute z-10 bottom-[-20px] left-20 md:left-15">
         <div class="bg-Red w-[150px] p-2 rounded-full border border-Rose-500 flex gap-2 text-[14px] justify-around items-center">
           <img class="cursor-pointer" src="images/icon-decrement-quantity.svg" alt="Decrease" data-action="decrease">
-          <span class="font-medium text-Rose-50">${cartProduct.quantity}</span>
+          <span class="font-medium text-Rose-50">${cartItem.quantity}</span>
           <img class="cursor-pointer" src="images/icon-increment-quantity.svg" alt="Increase" data-action="increase">
         </div>
       </div>
@@ -92,27 +92,27 @@ export class Renderer {
         </div>
       `;
             cartItems.forEach(item => {
-                const removeButton = container.querySelector(`[data-remove="${item.name}"]`);
-                removeButton?.addEventListener('click', () => onRemove(item.name));
+                const removeButton = container.querySelector(`[data-remove="${item.dessert.id}"]`);
+                removeButton?.addEventListener('click', () => onRemove(item.dessert.id));
             });
             const confirmBtn = document.getElementById('confirm-order-btn');
             confirmBtn?.addEventListener('click', onConfirm);
         }
     }
     renderCartItem(item) {
-        const subTotal = (item.price * item.quantity).toFixed(2);
+        const subTotal = (item.dessert.price * item.quantity).toFixed(2);
         return `
       <div>
         <div class="flex justify-between mb-4 items-center mt-4">
           <div class="flex flex-col">
-            <p class="text-[14px] text-Rose-500 font-medium">${item.name}</p>
+            <p class="text-[14px] text-Rose-500 font-medium">${item.dessert.name}</p>
             <div class="flex gap-3 text-[14px]">
               <p class="text-Red font-medium">${item.quantity}x</p>
-              <p class="text-Rose-400">@$${item.price.toFixed(2)}</p>
+              <p class="text-Rose-400">@$${item.dessert.price.toFixed(2)}</p>
               <p class="text-Rose-500 font-medium">$${subTotal}</p>
             </div>
           </div>
-          <div class="border rounded-full border-Rose-400 items-center flex p-1.5 cursor-pointer hover:border-Rose-900" data-remove="${item.name}">
+          <div class="border rounded-full border-Rose-400 items-center flex p-1.5 cursor-pointer hover:border-Rose-900" data-remove="${item.dessert.id}">
             <img src="images/icon-remove-item.svg" alt="Remove item">
           </div>
         </div>

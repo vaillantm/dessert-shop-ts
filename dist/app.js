@@ -18,20 +18,20 @@ class App {
         const newOrderBtn = document.getElementById('new-order-btn');
         newOrderBtn?.addEventListener('click', () => this.handleNewOrder());
     }
-    handleAddToCart(product) {
-        this.cart.addItem(product);
+    handleAddToCart(dessert) {
+        this.cart.addItem(dessert);
         this.render();
     }
-    handleIncreaseQuantity(name) {
-        this.cart.increaseQuantity(name);
+    handleIncreaseQuantity(dessertId) {
+        this.cart.increaseQuantity(dessertId);
         this.render();
     }
-    handleDecreaseQuantity(name) {
-        this.cart.decreaseQuantity(name);
+    handleDecreaseQuantity(dessertId) {
+        this.cart.decreaseQuantity(dessertId);
         this.render();
     }
-    handleRemoveProduct(name) {
-        this.cart.removeItem(name);
+    handleRemoveProduct(dessertId) {
+        this.cart.removeItem(dessertId);
         this.render();
     }
     handleConfirmOrder() {
@@ -45,8 +45,8 @@ class App {
         this.render();
     }
     render() {
-        this.renderer.renderProducts(this.products, this.cart.getItems(), (product) => this.handleAddToCart(product), (name) => this.handleIncreaseQuantity(name), (name) => this.handleDecreaseQuantity(name));
-        this.renderer.renderCart(this.cart.getItems(), this.cart.calculateTotal(), (name) => this.handleRemoveProduct(name), () => this.handleConfirmOrder());
+        this.renderer.renderProducts(this.products, this.cart.getItems(), (dessert) => this.handleAddToCart(dessert), (dessertId) => this.handleIncreaseQuantity(dessertId), (dessertId) => this.handleDecreaseQuantity(dessertId));
+        this.renderer.renderCart(this.cart.getItems(), this.cart.calculateTotal(), (dessertId) => this.handleRemoveProduct(dessertId), () => this.handleConfirmOrder());
     }
 }
 document.addEventListener('DOMContentLoaded', () => {

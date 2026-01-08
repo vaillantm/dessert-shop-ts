@@ -11,16 +11,28 @@ export class Cart {
     getItemCount() {
         return this.items.length;
     }
-    findItem(name) {
-        return this.items.find(item => item.name === name);
+    findItem(dessertId) {
+        return this.items.find(item => item.dessert.id === dessertId);
     }
-    addItem(product) {
-        const newItem = { ...product, quantity: 1 };
-        this.items.push(newItem);
+    addItem(dessert) {
+        const existingItem = this.findItem(dessert.id);
+        if (existingItem) {
+            // If item exists, increase quantity
+            this.increaseQuantity(dessert.id);
+        }
+        else {
+            // Add new item
+            const newItem = {
+                dessert,
+                quantity: 1,
+                addedAt: new Date()
+            };
+            this.items.push(newItem);
+        }
     }
-    increaseQuantity(name) {
+    increaseQuantity(dessertId) {
         this.items = this.items.map(item => {
-            if (name === item.name) {
+            if (dessertId === item.dessert.id) {
                 return {
                     ...item,
                     quantity: item.quantity + 1
@@ -29,9 +41,9 @@ export class Cart {
             return item;
         });
     }
-    decreaseQuantity(name) {
+    decreaseQuantity(dessertId) {
         this.items = this.items.map(item => {
-            if (name === item.name) {
+            if (dessertId === item.dessert.id) {
                 return {
                     ...item,
                     quantity: item.quantity - 1
@@ -40,11 +52,11 @@ export class Cart {
             return item;
         }).filter(item => item.quantity > 0);
     }
-    removeItem(name) {
-        this.items = this.items.filter(product => product.name !== name);
+    removeItem(dessertId) {
+        this.items = this.items.filter(item => item.dessert.id !== dessertId);
     }
     calculateTotal() {
-        return this.items.reduce((total, item) => total + (item.quantity * item.price), 0).toFixed(2);
+        return this.items.reduce((total, item) => total + (item.quantity * item.dessert.price), 0).toFixed(2);
     }
     clear() {
         this.items = [];

@@ -1,0 +1,128 @@
+[
+  {
+    "id": "dessert-1",
+    "name": "Waffle with Berries",
+    "category": "Waffle",
+    "price": 6.50,
+    "image": {
+      "thumbnail": "images/image-waffle-thumbnail.jpg",
+      "mobile": "images/image-waffle-mobile.jpg",
+      "tablet": "images/image-waffle-tablet.jpg",
+      "desktop": "images/image-waffle-desktop.jpg"
+    },
+    "description": "Crispy golden waffle topped with fresh mixed berries and a drizzle of maple syrup",
+    "inStock": true
+  },
+  {
+    "id": "dessert-2",
+    "name": "Crème Brûlée",
+    "category": "CremeBrulee",
+    "price": 7.00,
+    "image": {
+      "thumbnail": "images/image-creme-brulee-thumbnail.jpg",
+      "mobile": "images/image-creme-brulee-mobile.jpg",
+      "tablet": "images/image-creme-brulee-tablet.jpg",
+      "desktop": "images/image-creme-brulee-desktop.jpg"
+    },
+    "description": "Classic French custard dessert with a caramelized sugar top, creamy vanilla center",
+    "inStock": true
+  },
+  {
+    "id": "dessert-3",
+    "name": "Macaron Mix",
+    "category": "Macaron",
+    "price": 8.00,
+    "image": {
+      "thumbnail": "images/image-macaron-thumbnail.jpg",
+      "mobile": "images/image-macaron-mobile.jpg",
+      "tablet": "images/image-macaron-tablet.jpg",
+      "desktop": "images/image-macaron-desktop.jpg"
+    },
+    "description": "Assorted French macarons in various flavors including vanilla, chocolate, and raspberry",
+    "inStock": true
+  },
+  {
+    "id": "dessert-4",
+    "name": "Classic Tiramisu",
+    "category": "Tiramisu",
+    "price": 9.50,
+    "image": {
+      "thumbnail": "images/image-tiramisu-thumbnail.jpg",
+      "mobile": "images/image-tiramisu-mobile.jpg",
+      "tablet": "images/image-tiramisu-tablet.jpg",
+      "desktop": "images/image-tiramisu-desktop.jpg"
+    },
+    "description": "Traditional Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream",
+    "inStock": true
+  },
+  {
+    "id": "dessert-5",
+    "name": "Pistachio Baklava",
+    "category": "Baklava",
+    "price": 5.50,
+    "image": {
+      "thumbnail": "images/image-baklava-thumbnail.jpg",
+      "mobile": "images/image-baklava-mobile.jpg",
+      "tablet": "images/image-baklava-tablet.jpg",
+      "desktop": "images/image-baklava-desktop.jpg"
+    },
+    "description": "Layered phyllo pastry filled with chopped pistachios and sweetened with honey syrup",
+    "inStock": true
+  },
+  {
+    "id": "dessert-6",
+    "name": "Apple Pie Slice",
+    "category": "Pie",
+    "price": 4.75,
+    "image": {
+      "thumbnail": "images/image-cake-thumbnail.jpg",
+      "mobile": "images/image-cake-mobile.jpg",
+      "tablet": "images/image-cake-tablet.jpg",
+      "desktop": "images/image-cake-desktop.jpg"
+    },
+    "description": "Homemade apple pie with flaky crust, cinnamon-spiced apples, and a golden lattice top",
+    "inStock": true
+  },
+  {
+    "id": "dessert-7",
+    "name": "Strawberry Cake",
+    "category": "Cake",
+    "price": 7.25,
+    "image": {
+      "thumbnail": "images/image-cake-thumbnail.jpg",
+      "mobile": "images/image-cake-mobile.jpg",
+      "tablet": "images/image-cake-tablet.jpg",
+      "desktop": "images/image-cake-desktop.jpg"
+    },
+    "description": "Moist vanilla cake layered with fresh strawberries and whipped cream frosting",
+    "inStock": true
+  },
+  {
+    "id": "dessert-8",
+    "name": "Chocolate Brownie",
+    "category": "Brownie",
+    "price": 4.50,
+    "image": {
+      "thumbnail": "images/image-brownie-thumbnail.jpg",
+      "mobile": "images/image-brownie-mobile.jpg",
+      "tablet": "images/image-brownie-tablet.jpg",
+      "desktop": "images/image-brownie-desktop.jpg"
+    },
+    "description": "Rich and fudgy chocolate brownie with a crackly top, perfect for chocolate lovers",
+    "inStock": true
+  },
+  {
+    "id": "dessert-9",
+    "name": "Vanilla Panna Cotta",
+    "category": "PannaCotta",
+    "price": 6.75,
+    "image": {
+      "thumbnail": "images/image-panna-cotta-thumbnail.jpg",
+      "mobile": "images/image-panna-cotta-mobile.jpg",
+      "tablet": "images/image-panna-cotta-tablet.jpg",
+      "desktop": "images/image-panna-cotta-desktop.jpg"
+    },
+    "description": "Silky smooth Italian dessert with vanilla bean, served with fresh berry compote",
+    "inStock": true
+  }
+]
